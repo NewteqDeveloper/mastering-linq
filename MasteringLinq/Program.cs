@@ -1,5 +1,6 @@
 ﻿using System;
 using MasteringLinq.Enumberable;
+using MasteringLinq.QuerySyntax;
 using MasteringLinq.SelectQuery;
 
 namespace MasteringLinq
@@ -10,9 +11,11 @@ namespace MasteringLinq
         {
             var masteringSelect = new MasteringSelect();
             var enumeratorSample = new SampleEnumerator();
+            var query = new SampleQuerySyntax();
 
             masteringSelect.Run();
             enumeratorSample.Run();
+            query.Run();
 
             Console.WriteLine("All code has finished running");
 
