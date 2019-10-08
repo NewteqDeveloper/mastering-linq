@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MasteringLinq.Models;
 
 namespace MasteringLinq.SelectQuery
 {
@@ -9,48 +10,21 @@ namespace MasteringLinq.SelectQuery
     {
         public void Run()
         {
-            var list = new List<SelectModel>
-            {
-                new SelectModel
-                {
-                    Name = "Newt",
-                    Gender = Gender.Male,
-                    Age = 27,
-                },
-                new SelectModel
-                {
-                    Name = "Alicia",
-                    Gender = Gender.Female,
-                    Age = 27,
-                }
-            };
+            var list = SampleData.Data;
 
             StandardSelect(list);
 
             var result = list.Select(SelectWithMethod);
         }
 
-        private IEnumerable<string> StandardSelect(IEnumerable<SelectModel> list)
+        private IEnumerable<string> StandardSelect(IEnumerable<LinqModel> list)
         {
             return list.Select(x => x.Name);
         }
 
-        private string SelectWithMethod(SelectModel model)
+        private string SelectWithMethod(LinqModel model)
         {
             return model.Name;
         }
-    }
-
-    public class SelectModel
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public Gender Gender { get; set; }
-    }
-
-    public enum Gender
-    {
-        Male,
-        Female
     }
 }
